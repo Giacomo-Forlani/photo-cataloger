@@ -32,7 +32,7 @@
 
 _Questa è una descrizione di alto livello dei passaggi che dovresti seguire per creare la tua applicazione. Ogni passaggio potrebbe richiedere una notevole quantità di lavoro a seconda delle tue esigenze specifiche e potrebbero esserci molte decisioni di progettazione da prendere lungo il percorso. Tuttavia, spero che questa scaletta ti dia un'idea di come iniziare._
 
-Pacchetti installati:
+Pacchetti installati e comandi eseguiti:
 
     python:
     -venv
@@ -43,7 +43,7 @@ Pacchetti installati:
     npm:
     -node.js
 
-    Comandi eseguiti:
+    Comandi:
     -python3 -m venv .venv
     -source .venv/bin/activate
     -npx create-react-app frontend
