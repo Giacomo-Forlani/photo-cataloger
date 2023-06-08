@@ -30,7 +30,6 @@
 7. **Testa l'applicazione**
    - Assicurati di testare l'intera applicazione per assicurarti che tutto funzioni come previsto. Prova a caricare diverse immagini e verifica che i risultati siano salvati correttamente nel database e visualizzati correttamente sul frontend.
 
-_Questa è una descrizione di alto livello dei passaggi che dovresti seguire per creare la tua applicazione. Ogni passaggio potrebbe richiedere una notevole quantità di lavoro a seconda delle tue esigenze specifiche e potrebbero esserci molte decisioni di progettazione da prendere lungo il percorso. Tuttavia, spero che questa scaletta ti dia un'idea di come iniziare._
 
 Pacchetti installati e comandi eseguiti:
 
@@ -45,7 +44,7 @@ Pacchetti installati e comandi eseguiti:
 
     Comandi:
     -python3 -m venv .venv
-    -source .venv/bin/activate
+    -source .venv/bin/activatels
     -npx create-react-app frontend
 
 # photo-cataloger
