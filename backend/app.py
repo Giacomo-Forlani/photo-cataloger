@@ -4,7 +4,7 @@ from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/*": {"origins": "http://loclhost:3000"}})
 app.config['UPLOAD_FOLDER'] = os.path.abspath("uploads")
 
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
