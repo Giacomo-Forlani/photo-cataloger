@@ -107,24 +107,23 @@ table {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 5em auto auto 6em;
   height: 100vh;
-  width: 100vw;
+  width: 98vw;
   gap: 1em;
+  margin: 0 1vw;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.logo {
+.logo-container {
   grid-area: 1/1/1/1;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 0 1em;
 }
-.logo .img {
-  background-color: #8181ee;
-  border-radius: 1em;
+.logo-container img {
   height: 3em;
-  width: 3em;
+  color: #8181ee;
 }
-.logo h1 {
+.logo-container h1 {
   color: #8181ee;
   font-size: 2em;
 }
@@ -142,7 +141,7 @@ table {
   grid-area: 1/4/2/5;
   background-color: #8181ee;
   height: 3em;
-  width: 10em;
+  width: 50%;
   border-radius: 1em;
   align-self: center;
   justify-self: center;
@@ -150,32 +149,61 @@ table {
 
 .uploader {
   grid-area: 2/1/4/2;
-  background-color: #8181ee;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.uploader .img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22em;
+  height: 22em;
+  background-color: #f2f2f2;
+  border-radius: 2em 2em 0 0;
+  background-color: rgba(129, 129, 238, 0.5);
+}
+.uploader .img-container .img-placeholder {
+  height: 19em;
+  width: 19em;
+  background-color: white;
   border-radius: 2em;
   display: flex;
-  flex-wrap: wrap;
-  align-content: center;
+  align-items: center;
   justify-content: center;
-  justify-self: center;
-  margin-left: 1em;
 }
-.uploader canvas {
-  height: 10em;
+.uploader .img-container .img-placeholder f .imgPlaceholder {
+  position: relative;
+  z-index: 1;
+  height: 5em;
+}
+.uploader .img-container .img-placeholder canvas {
+  position: absolute;
+  z-index: 2;
+  height: 20em;
+  width: 20em;
   border-radius: 2em;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-.uploader .uploads-form {
-  padding: 2em;
+.uploader .uploader-button {
+  height: 5em;
+  width: 22em;
+  background-color: #8181ee;
+  border-radius: 0 0 2em 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .folders-container {
-  background-color: #8181ee;
-  opacity: 50%;
-  border-radius: 2em 0 0 2em;
+  background-color: rgba(129, 129, 238, 0.5);
+  border-radius: 2em;
   grid-area: 2/2/4/5;
 }
 
 .footer {
   grid-area: 4/1/4/5;
   background-color: #8181ee;
-  border-radius: 2em 2em 0 0;
 }/*# sourceMappingURL=index.css.map */
