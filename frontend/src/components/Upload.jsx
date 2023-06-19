@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import imgPlaceholder from '../img/imgPlaceholder.svg'
 
 const serverUrl = 'http://127.0.0.1:5000'; // l'URL del server Flask
 
 const Upload = ({ onUpload }) => {
     const [file, setFile] = useState(null);
+    const [previewUrl, setPreviewUrl] = useState(null);
 
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
+        setPreviewUrl(URL.createObjectURL(event.target.files[0]));
     }
 
     const handleSubmit = async (event) => {
@@ -23,9 +26,15 @@ const Upload = ({ onUpload }) => {
     }
 
     return (
-        <form className='uploads-form' onSubmit={handleSubmit}>
-            <input type="file" onChange={handleFileChange} />
-            <button type="submit">Upload</button>
+        <form className='uploader' onSubmit={handleSubmit}>
+            <div className='img-container'>
+                <img className='img-placeholder' src={imgPlaceholder} alt="image Placeholder" />
+                {previewUrl && <img className='img-preview' src={previewUrl} alt="Preview"/>}
+            </div>
+            <div className='buttons'>
+                <input type="file" onChange={handleFileChange} />
+                <button type="submit">Upload</button>
+            </div>
         </form>
     );
 }

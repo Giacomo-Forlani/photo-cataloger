@@ -6,8 +6,6 @@ import axios from 'axios';
 const serverUrl = 'http://127.0.0.1:5000';
 
 const PoseNet = ({ imageUrl }) => {
-    const canvasRef = useRef(null);
-
     const sendPoseData = useCallback(async (pose) => {
         const poseData = {
             image_url: imageUrl,
@@ -47,21 +45,8 @@ const PoseNet = ({ imageUrl }) => {
 
             await img.decode();
 
-            const canvas = canvasRef.current;
-            const ctx = canvas.getContext('2d');
-            canvas.width = img.width;
-            canvas.height = img.height;
-
             const pose = await net.estimateSinglePose(tf.browser.fromPixels(img));
             console.log(pose);
-            ctx.drawImage(img, 0, 0);
-
-            pose.keypoints.forEach(keypoint => {
-                ctx.beginPath();
-                ctx.arc(keypoint.position.x, keypoint.position.y, 10, 0, 2 * Math.PI);
-                ctx.fillStyle = 'aqua';
-                ctx.fill();
-            });
 
             await sendPoseData(pose);
         }
@@ -69,9 +54,7 @@ const PoseNet = ({ imageUrl }) => {
         runPosenet();
     }, [imageUrl, sendPoseData]);
 
-    return (
-        <canvas ref={canvasRef} /* style={{height: "30em"}} *//>
-    );
+    return null;
 }
 
 export default PoseNet;
