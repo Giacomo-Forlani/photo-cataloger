@@ -6,10 +6,10 @@ body{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: 5em auto auto 6em;
-    height: 100vh;
+    height: 98vh;
     width: 98vw;
     gap: 1em;
-    margin: 0 1vw;
+    margin: 1vh 1vw;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -82,15 +82,11 @@ body{
         justify-content: center;
         .img-placeholder{
             width: 40%;
-            position: relative;
-            z-index: 1;
         }
         .img-preview{
-            box-sizing: content-box;
             width: 80%;
             border-radius: 2em;
-            position: relative;
-            z-index: 2;
+            max-height: 80%;
         }
     }
     .buttons{
@@ -104,15 +100,27 @@ body{
     }
 }
 
+.img-placeholder.selected {
+    display: none;
+}
+
 
 .folders-container{
     background-color: rgba($main-color, $opacity-second-color);
     border-radius: 2em;
     grid-area: 2 / 2 / 4 / 5;
+    display: flex;
+    flex-direction: column;
+    div{
+        display: flex;
+    }
+    img{
+        height: 5em;
+    }
 }
 
 .footer{
     grid-area: 4 / 1 / 4 / 5;
     background-color: $main-color;
-    border-radius: 2em 2em 0 0;
+    border-radius: 2em;
 }

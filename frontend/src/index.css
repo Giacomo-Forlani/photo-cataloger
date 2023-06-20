@@ -110,10 +110,10 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 5em auto auto 6em;
-  height: 100vh;
+  height: 98vh;
   width: 98vw;
   gap: 1em;
-  margin: 0 1vw;
+  margin: 1vh 1vw;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
@@ -187,15 +187,11 @@ body {
 }
 .uploader .img-container .img-placeholder {
   width: 40%;
-  position: relative;
-  z-index: 1;
 }
 .uploader .img-container .img-preview {
-  box-sizing: content-box;
   width: 80%;
   border-radius: 2em;
-  position: relative;
-  z-index: 2;
+  max-height: 80%;
 }
 .uploader .buttons {
   display: flex;
@@ -207,14 +203,26 @@ body {
   border-radius: 0 0 2em 2em;
 }
 
+.img-placeholder.selected {
+  display: none;
+}
+
 .folders-container {
   background-color: rgba(17, 171, 254, 0.5);
   border-radius: 2em;
   grid-area: 2/2/4/5;
+  display: flex;
+  flex-direction: column;
+}
+.folders-container div {
+  display: flex;
+}
+.folders-container img {
+  height: 5em;
 }
 
 .footer {
   grid-area: 4/1/4/5;
   background-color: #11abfe;
-  border-radius: 2em 2em 0 0;
+  border-radius: 2em;
 }/*# sourceMappingURL=index.css.map */

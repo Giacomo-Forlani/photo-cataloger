@@ -69,3 +69,50 @@ def save_pose():
     db.session.commit()
 
     return {'message': 'Pose saved successfully'}, 201
+
+@app.route('/get-images/<score_type>/<min_score>/<max_score>', methods=['GET'])
+@cross_origin()
+def get_images(score_type, min_score, max_score):
+    min_score = float(min_score)
+    max_score = float(max_score)
+
+    if score_type == "nose_score":
+        poses = Pose.query.filter(Pose.nose_score.between(min_score, max_score)).all()
+    elif score_type == "leftEye_score":
+        poses = Pose.query.filter(Pose.leftEye_score.between(min_score, max_score)).all()
+    elif score_type == "rightEye_score":
+        poses = Pose.query.filter(Pose.rightEye_score.between(min_score, max_score)).all()
+    elif score_type == "leftEar_score":
+        poses = Pose.query.filter(Pose.leftEar_score.between(min_score, max_score)).all()
+    elif score_type == "rightEar_score":
+        poses = Pose.query.filter(Pose.rightEar_score.between(min_score, max_score)).all()
+    elif score_type == "leftShoulder_score":
+        poses = Pose.query.filter(Pose.leftShoulder_score.between(min_score, max_score)).all()
+    elif score_type == "rightShoulder_score":
+        poses = Pose.query.filter(Pose.rightShoulder_score.between(min_score, max_score)).all()
+    elif score_type == "leftElbow_score":
+        poses = Pose.query.filter(Pose.leftElbow_score.between(min_score, max_score)).all()
+    elif score_type == "rightElbow_score":
+        poses = Pose.query.filter(Pose.rightElbow_score.between(min_score, max_score)).all()
+    elif score_type == "leftWrist_score":
+        poses = Pose.query.filter(Pose.leftWrist_score.between(min_score, max_score)).all()
+    elif score_type == "rightWrist_score":
+        poses = Pose.query.filter(Pose.rightWrist_score.between(min_score, max_score)).all()
+    elif score_type == "leftHip_score":
+        poses = Pose.query.filter(Pose.leftHip_score.between(min_score, max_score)).all()
+    elif score_type == "rightHip_score":
+        poses = Pose.query.filter(Pose.rightHip_score.between(min_score, max_score)).all()
+    elif score_type == "leftKnee_score":
+        poses = Pose.query.filter(Pose.leftKnee_score.between(min_score, max_score)).all()
+    elif score_type == "rightKnee_score":
+        poses = Pose.query.filter(Pose.rightKnee_score.between(min_score, max_score)).all()
+    elif score_type == "leftAnkle_score":
+        poses = Pose.query.filter(Pose.leftAnkle_score.between(min_score, max_score)).all()
+    elif score_type == "rightAnkle_score":
+        poses = Pose.query.filter(Pose.rightAnkle_score.between(min_score, max_score)).all()
+    else:
+        return {"error": "Invalid score type"}, 400
+
+    image_urls = [pose.image_url for pose in poses]
+
+    return {'image_urls': image_urls}, 200
