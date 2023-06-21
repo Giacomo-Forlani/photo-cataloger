@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function ScoreImages({ scoreType, minScore, maxScore }) {
+function PhotoViewer({ scoreType, minScore, maxScore, uploadCount }) {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -12,15 +12,15 @@ function ScoreImages({ scoreType, minScore, maxScore }) {
       .catch(err => {
         console.error(err);
       });
-  }, [scoreType, minScore, maxScore]);
+  }, [scoreType, minScore, maxScore, uploadCount]);
 
   return (
     <div>
       {images.image_urls && images.image_urls.map((image, index) => (
-      <img key={index} src={image} alt={`Pose ${index}`} />
-    ))}
+        <img key={index} src={image} alt={`Pose ${index}`} />
+      ))}
     </div>
   );
 }
 
-export default ScoreImages;
+export default PhotoViewer;

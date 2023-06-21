@@ -4,10 +4,11 @@ import imgPlaceholder from '../img/imgPlaceholder.svg';
 
 const serverUrl = 'http://127.0.0.1:5000'; // URL del server Flask
 
-const Upload = ({ onUpload }) => {
+const Upload = ({ onUpload, onSuccessfulUpload }) => {
   const [file, setFile] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null);
   const [isImageSelected, setIsImageSelected] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState(null);
+
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -24,6 +25,7 @@ const Upload = ({ onUpload }) => {
     const response = await axios.post(`${serverUrl}/upload`, formData);
     const uploadedUrl = serverUrl + response.data.url;
     onUpload(uploadedUrl);
+    onSuccessfulUpload(); // Chiamata alla funzione di callback dopo l'upload con successo
   };
 
   const imgPlaceholderClass = `img-placeholder ${isImageSelected ? 'selected' : ''}`;

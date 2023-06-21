@@ -104,6 +104,7 @@ table {
 
 body {
   background-color: #ffffff;
+  font-family: "Jura", sans-serif;
 }
 
 .grid-container {
@@ -114,7 +115,6 @@ body {
   width: 98vw;
   gap: 1em;
   margin: 1vh 1vw;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .logo-container {
@@ -166,6 +166,7 @@ body {
 }
 .account h2 {
   color: #11abfe;
+  font-size: 1.5em;
 }
 
 .uploader {
@@ -213,6 +214,8 @@ body {
   grid-area: 2/2/4/5;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow: auto;
 }
 .folders-container div {
   display: flex;
