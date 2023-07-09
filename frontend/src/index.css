@@ -209,19 +209,30 @@ body {
 }
 
 .folders-container {
-  background-color: rgba(17, 171, 254, 0.5);
-  border-radius: 2em;
   grid-area: 2/2/4/5;
-  display: flex;
-  flex-direction: column;
+  background-color: rgba(17, 171, 254, 0.5);
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   height: 100%;
-  overflow: auto;
+  width: 100%;
+  grid-gap: 1em;
+  padding: 1em;
+  border-radius: 2em;
 }
-.folders-container div {
-  display: flex;
+.folders-container .folders {
+  padding: 0.5em 1em;
+  background-color: white;
+  border-radius: 2em;
 }
-.folders-container img {
-  height: 5em;
+.folders-container .folders .img-folders img {
+  height: 4em;
+}
+.folders-container .grid-container div:nth-child(2) {
+  /* Stili per il secondo div */
+}
+.folders-container .grid-container div:nth-child(3) {
+  /* Stili per il terzo div */
 }
 
 .footer {

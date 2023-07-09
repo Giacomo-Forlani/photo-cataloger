@@ -14,7 +14,7 @@ const Upload = ({ onUpload, onSuccessfulUpload }) => {
     setFile(event.target.files[0]);
     setPreviewUrl(URL.createObjectURL(event.target.files[0]));
     setIsImageSelected(true);
-  };
+  };  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -22,11 +22,15 @@ const Upload = ({ onUpload, onSuccessfulUpload }) => {
     const formData = new FormData();
     formData.append('image', file);
 
-    const response = await axios.post(`${serverUrl}/upload`, formData);
-    const uploadedUrl = serverUrl + response.data.url;
-    onUpload(uploadedUrl);
-    onSuccessfulUpload(); // Chiamata alla funzione di callback dopo l'upload con successo
-  };
+    try {
+        const response = await axios.post(`${serverUrl}/upload`, formData);
+        const uploadedUrl = serverUrl + response.data.url;
+        onUpload(uploadedUrl);
+        onSuccessfulUpload(); // Wait for onSuccessfulUpload to complete
+      } catch (error) {
+        // Handle upload error here
+        console.log('Upload failed:', error);
+      }  };
 
   const imgPlaceholderClass = `img-placeholder ${isImageSelected ? 'selected' : ''}`;
 
